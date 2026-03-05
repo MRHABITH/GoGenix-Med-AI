@@ -5,9 +5,14 @@ WORKDIR /app
 
 # Install system dependencies for OpenCV and PDF generation
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
-    wkhtmltopdf \
+    curl \
+    xfonts-75dpi \
+    xfonts-base \
+    && curl -fsSL https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb -o wkhtmltox.deb \
+    && apt-get install -y ./wkhtmltox.deb \
+    && rm wkhtmltox.deb \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python dependencies
