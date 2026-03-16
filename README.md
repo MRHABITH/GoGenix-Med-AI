@@ -1,3 +1,3 @@
 # AI-Disease
 
-Project live : https://ai-disease-diagnosis-sabari.streamlit.app/
+Project live : go-genix-med-ai.vercel.app
